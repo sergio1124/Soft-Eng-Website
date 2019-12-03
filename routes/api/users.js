@@ -95,4 +95,13 @@ router.post("/login", (req, res) => {
   });
 });
 
+// @route GET api/users/getUsers
+// @desc GET users
+// @access Public
+router.get("/getUsers", (req, res) => {
+  User.find()
+    .sort({ email: -1 })
+    .then(users => res.json(users));
+});
+
 module.exports = router;
