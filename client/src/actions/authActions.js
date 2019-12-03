@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING, GET_USERS } from "./types";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -25,6 +25,8 @@ export const loginUser = userData => dispatch => {
       // TODO: Here is where we should check what role the user has in order to display the links it can see.
       // TODO: Also check if it's a superAdmin.
       // Save to localStorage
+
+      console.log(res.data);
 
       // Set token to localStorage
       const { token } = res.data;
@@ -67,4 +69,14 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+};
+
+// GET all users
+export const getUsers = () => dispatch => {
+  axios.get("/api/users/getUsers").then(res =>
+    dispatch({
+      type: GET_USERS,
+      payload: res.data
+    }).catch(err => console.log(err))
+  );
 };
