@@ -27,8 +27,11 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        role: req.body.role,
-        isAdmin: false
+        financeAdmin: "false",
+        salesAdmin: "false",
+        engineerAdmin: "false",
+        hrAdmin: "false",
+        isAdmin: "false"
       });
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
@@ -68,13 +71,18 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         // User matched
         // Create JWT Payload
+        
         const payload = {
           id: user.id,
           name: user.name,
-          role: user.role,
           email: user.email,
-          isAdmin: user.isAdmin
+          isAdmin: user.isAdmin,
+          financeAdmin: user.financeAdmin,
+          salesAdmin: user.salesAdmin,
+          engineerAdmin: user.engineerAdmin,
+          hrAdmin: user.hrAdmin
         };
+
         // Sign token
         jwt.sign(
           payload,
