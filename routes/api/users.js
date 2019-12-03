@@ -70,7 +70,10 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          role: user.role,
+          email: user.email,
+          isAdmin: user.isAdmin
         };
         // Sign token
         jwt.sign(
@@ -93,6 +96,15 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+// @route GET api/users/getUsers
+// @desc GET users
+// @access Public
+router.get("/getUsers", (req, res) => {
+  User.find()
+    .sort({ email: -1 })
+    .then(users => res.json(users));
 });
 
 module.exports = router;
