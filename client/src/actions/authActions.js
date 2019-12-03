@@ -22,6 +22,8 @@ export const loginUser = userData => dispatch => {
   axios
     .post("/api/users/login", userData)
     .then(res => {
+      // TODO: Here is where we should check what role the user has in order to display the links it can see.
+      // TODO: Also check if it's a superAdmin.
       // Save to localStorage
 
       // Set token to localStorage
