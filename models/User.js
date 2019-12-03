@@ -18,12 +18,24 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  role: {
+  financeAdmin: {
     type: String,
-    required: false
+    required: true
+  },
+  salesAdmin: {
+    type: String,
+    required: true
+  },
+  engineerAdmin: {
+    type: String,
+    required: true
+  },
+  hrAdmin: {
+    type: String,
+    required: true
   },
   isAdmin: {
-    type: Boolean,
+    type: String,
     required: true
   }
 });
