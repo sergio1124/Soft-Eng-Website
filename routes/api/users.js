@@ -27,10 +27,10 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        financeAdmin: req.body.financeAdmin,
-        salesAdmin: req.body.salesAdmin,
-        engineerAdmin: req.body.engineerAdmin,
-        hrAdmin: req.body.hrAdmin,
+        financeAdmin: "false",
+        salesAdmin: "false",
+        engineerAdmin: "false",
+        hrAdmin: "false",
         isAdmin: "false"
       });
       // Hash password before saving in database
