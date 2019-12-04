@@ -3,6 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
+import {
+  FinanceButton,
+  SalesButton,
+  EngineerButton,
+  HRButton
+} from "../buttons/FinanceButton";
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -11,6 +18,23 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    let financeButton;
+    let salesButton;
+    let engineerButton;
+    let hrButton;
+
+    if (user.financeAdmin === "true") {
+      financeButton = <FinanceButton />;
+    }
+    if (user.salesAdmin === "true") {
+      salesButton = <SalesButton />;
+    }
+    if (user.engineerAdmin === "true") {
+      engineerButton = <EngineerButton />;
+    }
+    if (user.hrAdmin === "true") {
+      hrButton = <HRButton />;
+    }
 
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
@@ -22,6 +46,10 @@ class Dashboard extends Component {
                 You are logged into a full-stack {user.financeAdmin}
               </p>
             </h4>
+            {financeButton}
+            {salesButton}
+            {engineerButton}
+            {hrButton}
             <button
               style={{
                 width: "150px",
