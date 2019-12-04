@@ -79,7 +79,7 @@ class Dashboard extends Component {
               <h4>
                 <b>Hey there,</b> {user.name.split(" ")[0]}
                 <p className="flow-text grey-text text-darken-1">
-                  You are logged in as SUPERADMIN
+                  You are logged in as SUPER ADMIN
                 </p>
               </h4>
 

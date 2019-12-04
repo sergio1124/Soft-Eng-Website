@@ -73,7 +73,7 @@ export const getUsers = () => dispatch => {
     dispatch({
       type: GET_USERS,
       payload: res.data
-    }).catch(err => console.log(err))
+    })
   );
 };
 
