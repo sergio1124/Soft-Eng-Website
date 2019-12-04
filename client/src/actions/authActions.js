@@ -22,11 +22,7 @@ export const loginUser = userData => dispatch => {
   axios
     .post("/api/users/login", userData)
     .then(res => {
-      // TODO: Here is where we should check what role the user has in order to display the links it can see.
-      // TODO: Also check if it's a superAdmin.
       // Save to localStorage
-
-      console.log(res.data);
 
       // Set token to localStorage
       const { token } = res.data;
@@ -79,4 +75,17 @@ export const getUsers = () => dispatch => {
       payload: res.data
     }).catch(err => console.log(err))
   );
+};
+
+// Redirect to manage users
+export const manageUsers = history => dispatch => {
+  axios
+    .get("/api/users/getUsers")
+    .then(res =>
+      dispatch({
+        type: GET_USERS,
+        payload: res.data
+      })
+    )
+    .then(res => history.push("/manageUsers"));
 };
