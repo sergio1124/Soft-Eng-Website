@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, ListGroup, ListGroupItem } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import { Container, ListGroup, ListGroupItem } from "reactstrap";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getUsers } from "../../actions/authActions";
