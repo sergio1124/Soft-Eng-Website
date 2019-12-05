@@ -27,20 +27,20 @@ class Dashboard extends Component {
     let engineerButton;
     let hrButton;
 
-    if (user.financeAdmin === "true") {
+    if (user.financeAdmin === true) {
       financeButton = <FinanceButton />;
     }
-    if (user.salesAdmin === "true") {
+    if (user.salesAdmin === true) {
       salesButton = <SalesButton />;
     }
-    if (user.engineerAdmin === "true") {
+    if (user.engineerAdmin === true) {
       engineerButton = <EngineerButton />;
     }
-    if (user.hrAdmin === "true") {
+    if (user.hrAdmin === true) {
       hrButton = <HRButton />;
     }
 
-    if (user.isAdmin === "false") {
+    if (user.isAdmin === false) {
       return (
         <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">

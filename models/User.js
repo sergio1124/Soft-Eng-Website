@@ -19,23 +19,23 @@ const UserSchema = new Schema({
     default: Date.now
   },
   financeAdmin: {
-    type: String,
+    type: Boolean,
     required: true
   },
   salesAdmin: {
-    type: String,
+    type: Boolean,
     required: true
   },
   engineerAdmin: {
-    type: String,
+    type: Boolean,
     required: true
   },
   hrAdmin: {
-    type: String,
+    type: Boolean,
     required: true
   },
   isAdmin: {
-    type: String,
+    type: Boolean,
     required: true
   }
 });
